@@ -184,9 +184,9 @@ hide_edge_borders both
 
 bar {
         position top
-        status_command i3blocks -c ~/.config/i3/i3blocks.conf
+        status_command i3status #i3blocks -c ~/.config/i3/i3blocks.conf
+	# path - /etc/i3status.conf
 	
-	#default is i3status instead of i3blocks
 
 	colors {
 		background #0f1c24
@@ -245,11 +245,11 @@ bindsym $sup+Control+2 exec nautilus
 bindsym $sup+Control+3 exec steam
 bindsym $sup+Control+4 exec firefox
 bindsym $sup+Control+5 exec discord
-bindsym $sup+Control+6 env XDG_CURRENT_DESKTOP=GNOME gnome-control-center 
+bindsym $sup+Control+6 exec env XDG_CURRENT_DESKTOP=GNOME gnome-control-center 
 # bindsym $sup+Control+7 exec 
 # bindsym $sup+Control+8 exec 
 # bindsym $sup+Control+9 exec 
-# bindsym $sup+Control+0 env XDG_CURRENT_DESKTOP=GNOME gnome-control-center
+# bindsym $sup+Control+0 exec
 
 
 # Startup Commands ==========================================
