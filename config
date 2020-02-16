@@ -204,10 +204,10 @@ bar {
 # starts rofi (default was dmenu_run command)
 bindsym $sup+space exec rofi -show drun -font "ubuntu medium 15" -theme glue_pro_blue -width 20 -lines 9
 
-# locks session
+# lock command
 bindsym $mod+$sup+l exec i3lock -c 39454f
 
-# shutdown script
+# shutdown command
 bindsym $mod+$sup+BackSpace exec poweroff
 
 # audio settings
@@ -218,10 +218,10 @@ bindsym F3 exec amixer -D pulse sset Master 2%-
 # night mode 
 bindsym $mod+$sup+0 exec redshift -P -O 7050
 bindsym $mod+$sup+9 exec redshift -P -O 6050
-bindsym $mod+$sup+8 exec redshift -P -O 5350
-bindsym $mod+$sup+7 exec redshift -P -O 4150
-bindsym $mod+$sup+6 exec redshift -P -O 3000
-bindsym $mod+$sup+5 exec redshift -P -O 2700
+bindsym $mod+$sup+8 exec redshift -P -O 5650
+bindsym $mod+$sup+7 exec redshift -P -O 5050
+bindsym $mod+$sup+6 exec redshift -P -O 4500
+bindsym $mod+$sup+5 exec redshift -P -O 3500
 bindsym $mod+$sup+4 exec redshift -P -O 2200
 
 # dim screen
@@ -237,9 +237,11 @@ bindsym $mod+Shift+2 exec xrandr --output DVI-D-0 --brightness .1
 bindsym $mod+Shift+1 exec xrandr --output DVI-D-0 --brightness 0
 
 # screenshot
-bindsym Print exec gnome-screenshot
+bindsym Print exec gnome-screenshot 
+bindsym --release Scroll_Lock exec gnome-screenshot -a
+# set save path: gsettings set org.gnome.gnome-screenshot auto-save-directory 'file:///home/user/Screenshots'
 
-# launch some apps quickly
+# app shortcuts
 bindsym $sup+Control+1 exec chromium
 bindsym $sup+Control+2 exec nautilus
 bindsym $sup+Control+3 exec steam
@@ -259,9 +261,6 @@ exec feh always --bg-scale /home/user/Pictures/lubuntu_wallpaper.png
 
 # network stuff 
 exec --no-startup-id nm-applet
-
-# volume stuff
-exec --no-startup-id volumeicon
 
 # Downloaded stuff=============================================
 # download with apt-get - rofi, pavucontrol, i3blocks, feh, figlet, redshift
