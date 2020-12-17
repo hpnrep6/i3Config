@@ -163,7 +163,7 @@ mode "resize" {
 
 bindsym $sup+x mode "resize"
 
-set $bg-color 	         #4b5966
+set $bg-color            #4b5966
 set $inactive-bg-color   #232d36
 set $text-color          #f2faff
 set $inactive-text-color #5a656b
@@ -221,19 +221,11 @@ bindsym $mod+$sup+9 exec redshift -P -O 6050
 bindsym $mod+$sup+8 exec redshift -P -O 5650
 bindsym $mod+$sup+7 exec redshift -P -O 5050
 bindsym $mod+$sup+6 exec redshift -P -O 4500
-bindsym $mod+$sup+5 exec redshift -P -O 3500
-bindsym $mod+$sup+4 exec redshift -P -O 2200
-bindsym $mod+$sup+3 exec redshift -P -O 1400
-
-# dim screen
-bindsym $mod+Shift+0 exec xrandr --output DVI-D-0 --brightness 1
-bindsym $mod+Shift+9 exec xrandr --output DVI-D-0 --brightness .8
-bindsym $mod+Shift+8 exec xrandr --output DVI-D-0 --brightness .7
-bindsym $mod+Shift+7 exec xrandr --output DVI-D-0 --brightness .6
-bindsym $mod+Shift+6 exec xrandr --output DVI-D-0 --brightness .5
-bindsym $mod+Shift+5 exec xrandr --output DVI-D-0 --brightness .4
-bindsym $mod+Shift+4 exec xrandr --output DVI-D-0 --brightness .3
-bindsym $mod+Shift+3 exec xrandr --output DVI-D-0 --brightness 0
+bindsym $mod+$sup+5 exec redshift -P -O 4000
+bindsym $mod+$sup+4 exec redshift -P -O 3500 -b 0.8:0.8
+bindsym $mod+$sup+3 exec redshift -P -O 3000 -b 0.7:0.7
+bindsym $mod+$sup+2 exec redshift -P -O 2500 -b 0.6:0.6
+bindsym $mod+$sup+1 exec redshift -P -O 2100 -b 0.5:0.5
 
 # screenshot
 bindsym Print exec gnome-screenshot 
@@ -244,17 +236,20 @@ bindsym --release Scroll_Lock exec gnome-screenshot -a
 bindsym $sup+Control+1 exec chromium
 bindsym $sup+Control+2 exec nautilus
 bindsym $sup+Control+3 exec steam
-bindsym $sup+Control+4 exec cd ~/files_/ && ./UnityHub.AppImage 
-bindsym $sup+Control+5 exec cd ~/files_/godot/ && ./Godot_v3.2.2-stable_x11.64
-bindsym $sup+Control+6 exec discord
+bindsym $sup+Control+4 exec ode
+bindsym $sup+Control+5 exec opera
+bindsym $sup+Control+6 exec cd ~/files_/godot/ && ./Godot_v3.2.3-stable_x11.64
 bindsym $sup+Control+7 exec cd ~/.local/share/Steam/steamapps/common/War\ Thunder/ && ./launcher
 # bindsym $sup+Control+8 exec 
 # bindsym $sup+Control+9 exec 
 # bindsym $sup+Control+0 exec
 
+# cd ~/files_/ && ./UnityHub.AppImage 
+# cd ~/files_/godot/ && ./Godot_v3.2.2-stable_x11.64
 # env XDG_CURRENT_DESKTOP=GNOME gnome-control-center  
 # cd ~/files_/godot/Godot_v3.2.1-stable_mono_x11_64 && ./Godot_v3.2.1-stable_mono_x11.64 
 # cd ~/files_/godot/ && ./Godot_v3.2.2-stable_x11.64
+# cd ~/files_/godot/ && ./Godot_v3.2.3-stable_x11.64
 # cd ~/files_/ && ./UnityHub.AppImage 
 # cd ~/.local/share/Steam/steamapps/common/War\ Thunder/ && ./launcher
 
@@ -262,10 +257,16 @@ bindsym $sup+Control+7 exec cd ~/.local/share/Steam/steamapps/common/War\ Thunde
 # Startup Commands ==========================================
 
 # sets wallpaper
-exec feh always --bg-scale /home/user/Pictures/lubuntu_wallpaper.png
+exec feh always --bg-scale /home/user/Pictures/Next_KDE.png
 
 # network stuff 
 exec --no-startup-id nm-applet
+
+# mouse sensitivity
+exec --no-startup-id xinput set-prop 11 296 -0.7
+
+# mouse wheel
+exec --no-startup-id xinput set-button-map 11 1 2 3 4 5 6 7 2 2
 
 # Downloaded stuff=============================================
 # download with apt-get - rofi, pavucontrol, i3blocks, feh, figlet, redshift
