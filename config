@@ -212,8 +212,8 @@ bindsym $mod+$sup+BackSpace exec poweroff
 
 # audio settings
 bindsym F5 exec amixer -D pulse sset Master 0%
-bindsym F4 exec amixer -D pulse sset Master 2%+
-bindsym F3 exec amixer -D pulse sset Master 2%-
+bindsym F4 exec amixer -D pulse sset Master 1%+
+bindsym F3 exec amixer -D pulse sset Master 1%-
 
 # night mode 
 bindsym $mod+$sup+0 exec redshift -P -O 7050
@@ -257,7 +257,7 @@ bindsym $sup+Control+7 exec cd ~/.local/share/Steam/steamapps/common/War\ Thunde
 # Startup Commands ==========================================
 
 # sets wallpaper
-exec feh always --bg-scale /home/user/Pictures/Next_KDE.png
+exec feh always --bg-scale /home/user/files_/Next_KDE.png
 
 # network stuff 
 exec --no-startup-id nm-applet
@@ -276,5 +276,5 @@ exec --no-startup-id xinput set-button-map 11 1 2 3 4 5 6 7 2 2
 # wallpaper --------------------------------------------^      ^	^
 # why not -----------------------------------------------------^	^
 # night ----------------------------------------------------------------^
-# get to this file - gedit ~/.config/i3/config
+# get to this page - gedit ~/.config/i3/config
 # =============================================================
