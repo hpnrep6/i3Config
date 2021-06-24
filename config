@@ -73,7 +73,7 @@ bindsym $sup+c split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+bindsym $mod+r layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -91,16 +91,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "[1]"
-set $ws2 "[2]" 
-set $ws3 "[3]" 
-set $ws4 "[4]" 
-set $ws5 "[5]" 
-set $ws6 "[6]"
-set $ws7 "[7]" 
-set $ws8 "[8]" 
-set $ws9 "[9]"
-set $ws10 "[0]" 
+set $ws1 "1:[1]"
+set $ws2 "2:[2]" 
+set $ws3 "3:[3]" 
+set $ws4 "4:[4]" 
+set $ws5 "5:[5]" 
+set $ws6 "6:[6]"
+set $ws7 "7:[7]" 
+set $ws8 "8:[8]" 
+set $ws9 "9:[9]"
+set $ws10 "10:[0]" 
 
 # switch to workspace
 bindsym $sup+1 workspace $ws1
@@ -185,6 +185,7 @@ hide_edge_borders both
 bar {
         position top
         status_command i3status #i3blocks -c ~/.config/i3/i3blocks.conf
+        strip_workspace_numbers yes
 	# path - /etc/i3status.conf
 	
 
@@ -236,18 +237,18 @@ bindsym --release Scroll_Lock exec gnome-screenshot -a
 bindsym $sup+Control+1 exec chromium
 bindsym $sup+Control+2 exec nautilus
 bindsym $sup+Control+3 exec steam
-bindsym $sup+Control+4 exec ode
+bindsym $sup+Control+4 exec code --disable-gpu
 bindsym $sup+Control+5 exec opera
-bindsym $sup+Control+6 exec cd ~/files_/godot/ && ./Godot_v3.2.3-stable_x11.64
+bindsym $sup+Control+6 exec cd ~/files_/godot/Godot_v3.2.3-stable_mono_x11_64 && ./Godot_v3.2.3-stable_mono_x11.64 
 bindsym $sup+Control+7 exec cd ~/.local/share/Steam/steamapps/common/War\ Thunder/ && ./launcher
-# bindsym $sup+Control+8 exec 
+bindsym $sup+Control+8 exec cd ~/files_/ && ./UnityHub.AppImage
 # bindsym $sup+Control+9 exec 
 # bindsym $sup+Control+0 exec
 
 # cd ~/files_/ && ./UnityHub.AppImage 
 # cd ~/files_/godot/ && ./Godot_v3.2.2-stable_x11.64
 # env XDG_CURRENT_DESKTOP=GNOME gnome-control-center  
-# cd ~/files_/godot/Godot_v3.2.1-stable_mono_x11_64 && ./Godot_v3.2.1-stable_mono_x11.64 
+# cd ~/files_/godot/Godot_v3.2.3-stable_mono_x11_64 && ./Godot_v3.2.3-stable_mono_x11.64 
 # cd ~/files_/godot/ && ./Godot_v3.2.2-stable_x11.64
 # cd ~/files_/godot/ && ./Godot_v3.2.3-stable_x11.64
 # cd ~/files_/ && ./UnityHub.AppImage 
@@ -258,6 +259,7 @@ bindsym $sup+Control+7 exec cd ~/.local/share/Steam/steamapps/common/War\ Thunde
 
 # sets wallpaper
 exec feh always --bg-scale /home/user/files_/Next_KDE.png
+
 
 # network stuff 
 exec --no-startup-id nm-applet
