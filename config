@@ -102,6 +102,15 @@ set $ws8 "8:[8]"
 set $ws9 "9:[9]"
 set $ws10 "10:[0]" 
 
+set $ws11 "11:[12]"
+set $ws12 "12:[13]" 
+set $ws13 "13:[14]" 
+set $ws14 "14:[15]" 
+set $ws15 "15:[16]" 
+set $ws16 "16:[17]"
+set $ws17 "17:[18]" 
+set $ws18 "18:[19]" 
+
 # switch to workspace
 bindsym $sup+1 workspace $ws1
 bindsym $sup+2 workspace $ws2
@@ -114,6 +123,17 @@ bindsym $sup+8 workspace $ws8
 bindsym $sup+9 workspace $ws9
 bindsym $sup+0 workspace $ws10
 
+bindsym $mod+2 workspace $ws11
+bindsym $mod+3 workspace $ws12
+bindsym $mod+4 workspace $ws13
+bindsym $mod+5 workspace $ws14
+bindsym $mod+6 workspace $ws15
+bindsym $mod+7 workspace $ws16
+bindsym $mod+8 workspace $ws17
+bindsym $mod+9 workspace $ws18
+bindsym $mod+0 workspace $ws19
+
+
 # move focused container to workspace
 bindsym $sup+Shift+1 move container to workspace $ws1
 bindsym $sup+Shift+2 move container to workspace $ws2
@@ -125,6 +145,16 @@ bindsym $sup+Shift+7 move container to workspace $ws7
 bindsym $sup+Shift+8 move container to workspace $ws8
 bindsym $sup+Shift+9 move container to workspace $ws9
 bindsym $sup+Shift+0 move container to workspace $ws10
+
+bindsym $mod+Shift+2 move container to workspace $ws11
+bindsym $mod+Shift+3 move container to workspace $ws12
+bindsym $mod+Shift+4 move container to workspace $ws13
+bindsym $mod+Shift+5 move container to workspace $ws14
+bindsym $mod+Shift+6 move container to workspace $ws15
+bindsym $mod+Shift+7 move container to workspace $ws16
+bindsym $mod+Shift+8 move container to workspace $ws17
+bindsym $mod+Shift+9 move container to workspace $ws18
+bindsym $mod+Shift+0 move container to workspace $ws19
 
 # border dimensions
 default_border pixel 1
@@ -239,15 +269,16 @@ bindsym $sup+Control+2 exec nautilus
 bindsym $sup+Control+3 exec steam
 bindsym $sup+Control+4 exec code --disable-gpu
 bindsym $sup+Control+5 exec opera
-bindsym $sup+Control+6 exec cd ~/files_/godot/Godot_v3.2.3-stable_mono_x11_64 && ./Godot_v3.2.3-stable_mono_x11.64 
+bindsym $sup+Control+6 exec cd ~/files_/godot && ./Godot_v3.3.3-stable_x11.64
 bindsym $sup+Control+7 exec cd ~/.local/share/Steam/steamapps/common/War\ Thunder/ && ./launcher
-bindsym $sup+Control+8 exec cd ~/files_/ && ./UnityHub.AppImage
-# bindsym $sup+Control+9 exec 
+bindsym $sup+Control+8 exec /opt/android-studio/bin/studio.sh
+bindsym $sup+Control+9 exec cd ~/files_/ && ./UnityHub.AppImage 
 # bindsym $sup+Control+0 exec
 
 # cd ~/files_/ && ./UnityHub.AppImage 
 # cd ~/files_/godot/ && ./Godot_v3.2.2-stable_x11.64
 # env XDG_CURRENT_DESKTOP=GNOME gnome-control-center  
+# cd ~/files_/godot/Godot_v3.2.3-stable_mono_x11_64 && ./Godot_v3.2.3-stable_mono_x11.64 
 # cd ~/files_/godot/Godot_v3.2.3-stable_mono_x11_64 && ./Godot_v3.2.3-stable_mono_x11.64 
 # cd ~/files_/godot/ && ./Godot_v3.2.2-stable_x11.64
 # cd ~/files_/godot/ && ./Godot_v3.2.3-stable_x11.64
@@ -265,10 +296,15 @@ exec feh always --bg-scale /home/user/files_/Next_KDE.png
 exec --no-startup-id nm-applet
 
 # mouse sensitivity
-exec --no-startup-id xinput set-prop 11 296 -0.7
+exec --no-startup-id xinput set-prop 13 306 -0.6
+exec --no-startup-id xinput set-prop 13 296 -0.7
 
 # mouse wheel
-exec --no-startup-id xinput set-button-map 11 1 2 3 4 5 6 7 2 2
+exec --no-startup-id xinput set-button-map 13 1 2 3 4 5 6 7 2 2
+# exec --no-startup-id xinput set-button-map 11 1 2 3 4 5 6 7 2 2
+
+# monitor
+exec xrandr --output DisplayPort-0 --rotate left
 
 # Downloaded stuff=============================================
 # download with apt-get - rofi, pavucontrol, i3blocks, feh, figlet, redshift
