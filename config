@@ -77,8 +77,14 @@ bindsym $mod+r layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+# toggle tiling / floating window
+bindsym $mod+Shift+space floating toggle resize set 900 900; move position center
+#[floating] resize set 900 900, move position center
+
+# floating_maximum_size 1500 x 900
+
+mouse_warping none
+
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -109,7 +115,8 @@ set $ws14 "14:[15]"
 set $ws15 "15:[16]" 
 set $ws16 "16:[17]"
 set $ws17 "17:[18]" 
-set $ws18 "18:[19]" 
+set $ws18 "18:[19]"
+set $ws19 "18:[20]"
 
 # switch to workspace
 bindsym $sup+1 workspace $ws1
@@ -132,6 +139,27 @@ bindsym $mod+7 workspace $ws16
 bindsym $mod+8 workspace $ws17
 bindsym $mod+9 workspace $ws18
 bindsym $mod+0 workspace $ws19
+
+workspace $ws1 output HDMI-0
+workspace $ws2 output HDMI-0
+workspace $ws3 output HDMI-0
+workspace $ws4 output HDMI-0
+workspace $ws5 output HDMI-0
+workspace $ws6 output HDMI-0
+workspace $ws7 output HDMI-0
+workspace $ws8 output HDMI-0
+workspace $ws9 output HDMI-0
+workspace $ws10 output HDMI-0
+
+workspace $ws11 output DP-0
+workspace $ws12 output DP-0
+workspace $ws13 output DP-0
+workspace $ws14 output DP-0
+workspace $ws15 output DP-0
+workspace $ws16 output DP-0
+workspace $ws17 output DP-0
+workspace $ws18 output DP-0
+workspace ${ws19} output DP-0
 
 
 # move focused container to workspace
@@ -157,7 +185,7 @@ bindsym $mod+Shift+9 move container to workspace $ws18
 bindsym $mod+Shift+0 move container to workspace $ws19
 
 # border dimensions
-default_border pixel 1
+default_border pixel 2
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -195,7 +223,7 @@ bindsym $sup+x mode "resize"
 
 set $bg-color            #4b5966
 set $inactive-bg-color   #232d36
-set $text-color          #f2faff
+set $text-color          #d1e4f0
 set $inactive-text-color #5a656b
 set $urgent-bg-color     #d48c19
 
@@ -220,7 +248,7 @@ bar {
 	
 
 	colors {
-		background #0f1c24
+		background #222a36
 	    	separator #757575
 		#                  border             background         text
 		focused_workspace  #3d6075            #3d6075            $text-color
@@ -236,27 +264,31 @@ bar {
 bindsym $sup+space exec rofi -show drun -font "ubuntu medium 15" -theme glue_pro_blue -width 20 -lines 9
 
 # lock command
-bindsym $mod+$sup+l exec i3lock -c 39454f
+bindsym $mod+$sup+l exec i3lock -c 144769
 
 # shutdown command
 bindsym $mod+$sup+BackSpace exec poweroff
 
 # audio settings
-bindsym F5 exec amixer -D pulse sset Master 0%
+bindsym XF86AudioMute exec amixer -D pulse set Master toggle
+bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 1%+
+bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 1%-
+
+bindsym F5 exec amixer -D pulse set Master toggle
 bindsym F4 exec amixer -D pulse sset Master 1%+
 bindsym F3 exec amixer -D pulse sset Master 1%-
 
 # night mode 
-bindsym $mod+$sup+0 exec redshift -P -O 7050
-bindsym $mod+$sup+9 exec redshift -P -O 6050
-bindsym $mod+$sup+8 exec redshift -P -O 5650
-bindsym $mod+$sup+7 exec redshift -P -O 5050
-bindsym $mod+$sup+6 exec redshift -P -O 4500
-bindsym $mod+$sup+5 exec redshift -P -O 4000
-bindsym $mod+$sup+4 exec redshift -P -O 3500 -b 0.8:0.8
-bindsym $mod+$sup+3 exec redshift -P -O 3000 -b 0.7:0.7
-bindsym $mod+$sup+2 exec redshift -P -O 2500 -b 0.6:0.6
-bindsym $mod+$sup+1 exec redshift -P -O 2100 -b 0.5:0.5
+bindsym $mod+$sup+0 exec redshift -P -O 6400
+bindsym $mod+$sup+9 exec redshift -P -O 4050 -b 0.9:0.9
+bindsym $mod+$sup+8 exec redshift -P -O 3050 -b 0.85:0.85
+bindsym $mod+$sup+7 exec redshift -P -O 3050 -b 0.8:0.8
+bindsym $mod+$sup+6 exec redshift -P -O 3000 -b 0.75:0.75
+bindsym $mod+$sup+5 exec redshift -P -O 3000 -b 0.7:0.7
+bindsym $mod+$sup+4 exec redshift -P -O 3000 -b 0.6:0.6
+bindsym $mod+$sup+3 exec redshift -P -O 3000 -b 0.5:0.5
+bindsym $mod+$sup+2 exec redshift -P -O 3000 -b 0.3:0.3
+bindsym $mod+$sup+1 exec redshift -P -O 3000 -b 0.2:0.2
 
 # screenshot
 bindsym Print exec gnome-screenshot 
@@ -264,13 +296,14 @@ bindsym --release Scroll_Lock exec gnome-screenshot -a
 # set save path: gsettings set org.gnome.gnome-screenshot auto-save-directory 'file:///home/user/Screenshots'
 
 # app shortcuts
-bindsym $sup+Control+1 exec chromium
+bindsym $sup+Control+1 exec chromium --disable-features=DownloadBubble
 bindsym $sup+Control+2 exec nautilus
 bindsym $sup+Control+3 exec steam
-bindsym $sup+Control+4 exec code --disable-gpu
-bindsym $sup+Control+5 exec opera
-bindsym $sup+Control+6 exec cd ~/files_/godot && ./Godot_v3.3.3-stable_x11.64
-bindsym $sup+Control+7 exec cd ~/.local/share/Steam/steamapps/common/War\ Thunder/ && ./launcher
+bindsym $sup+Control+4 exec cd ~/Files/Executables/Orca && ./Orca.AppImage
+bindsym $sup+Control+5 exec cd ~/Files/Executables/R2 && ./r2modman-3.1.47.AppImage --no-sandbox
+# bindsym $sup+Control+6 exec cd ~/files_/godot && ./Godot_v3.3.3-stable_x11.64
+# bindsym $sup+Control+7 exec cd ~/.local/share/Steam/steamapps/common/War\ Thunder/ && ./launcher
+bindsym $sup+Control+7 exec cd ~/.steam/debian-installation/steamapps/common/War\ Thunder/ && ./launcher
 bindsym $sup+Control+8 exec /opt/android-studio/bin/studio.sh
 bindsym $sup+Control+9 exec cd ~/files_/ && ./UnityHub.AppImage 
 # bindsym $sup+Control+0 exec
@@ -285,12 +318,14 @@ bindsym $sup+Control+9 exec cd ~/files_/ && ./UnityHub.AppImage
 # cd ~/files_/ && ./UnityHub.AppImage 
 # cd ~/.local/share/Steam/steamapps/common/War\ Thunder/ && ./launcher
 
+bindsym $sup+$mod+o exec xrandr --output DP-0 --off && sleep 2 && nitrogen --restore
+bindsym $sup+$mod+p exec xrandr --output HDMI-0 --auto --pos 0x0 --output DP-0 --auto --pos 2620x0 && sleep 2 && nitrogen --restore 
 
 # Startup Commands ==========================================
 
 # sets wallpaper
-exec feh always --bg-scale /home/user/files_/Next_KDE.png
-
+# exec feh always --bg-scale /home/user/files_/Next_KDE.png
+# exec nitrogen --restore
 
 # network stuff 
 exec --no-startup-id nm-applet
@@ -300,11 +335,24 @@ exec --no-startup-id xinput set-prop 13 306 -0.6
 exec --no-startup-id xinput set-prop 13 296 -0.7
 
 # mouse wheel
-exec --no-startup-id xinput set-button-map 13 1 2 3 4 5 6 7 2 2
+# exec --no-startup-id xinput set-button-map 13 1 2 3 4 5 6 7 2 2
 # exec --no-startup-id xinput set-button-map 11 1 2 3 4 5 6 7 2 2
 
 # monitor
-exec xrandr --output DisplayPort-0 --rotate left
+# exec xrandr --output DP-0 --rotate left
+# exec xrandr --output DP-0 --pos 1080x1920
+# exec xrandr --output DVI-D-0 --auto --rotate left --left-of DP-0 && xrandr --output DP-0 --pos 1080x480 && sleep 1 && nitrogen --restore
+# exec xrandr --output DVI-D-0 --pos 2560x1440
+# exec xrandr --output DP-0 --pos 0x0 --output DVI-D-0 --pos 2560x1440
+# exec xrandr --output DP-0 --pos 1080x1920
+# exec xrandr --output DP-0 --pos 1080x1920
+# exec cd ~/Files/Theme/void && ./XCreateMouseVoid 1081 1440 3060 480
+
+exec nitrogen --restore
+exec xrandr --output DP-0 --auto --pos 2640x0 --output HDMI-0 --auto --pos 0x0
+
+exec xdotool mousemove 1280 720
+exec sleep 2 && nitrogen --restore
 
 # Downloaded stuff=============================================
 # download with apt-get - rofi, pavucontrol, i3blocks, feh, figlet, redshift
